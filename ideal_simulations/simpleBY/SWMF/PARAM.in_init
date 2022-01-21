@@ -23,6 +23,15 @@ F			DoTimeAccurate
 00              	second
 0.0			FracSecond
 
+#ENDTIME            
+2010			year
+03              	month
+20              	day
+12			hour
+00             		minute
+00              	second
+0.0			FracSecond
+
 ! Allow empty processor for IM
 #STRICT
 F			UseStrict
@@ -154,6 +163,7 @@ T                       IsPlotName_e
 #PLOTFILENAME
 date			TimeUnitMax
 
+! To discuss. I don't see mx, my, mz, etc. listed in XML. 
 #SAVELOGFILE
 T			DoSaveLo5Dgfile
 VAR step date		StringLogfile
@@ -169,10 +179,12 @@ T			DoAmr
 T			IsStrictAmr
 
 #MAGPERTURBINTEGRAL
-T                       UseSurfaceIntegral
+! XML claims "UseSurfaceIntegral" is not implemented.
+T                       UseSurfaceIntegral 
 T                       UseFastFacIntegral
 MAG                     TypeCoordIndex
 MAG                     TypeCoordFacGrid
+
 
 #GEOMAGINDICES
 180			nSizeKpWindow [min]
@@ -306,12 +318,12 @@ IM			NameComp2
 
 #COUPLETIME
 GM			NameComp
-F			DoCoupleOnTime
+T			DoCoupleOnTime
 
 #BEGIN_COMP GM ---------------------------------------------------------------
 
 #NONCONSERVATIVE
-T                       UseNonConservative
+F                       UseNonConservative
 
 #CONSERVATIVECRITERIA
 1			nConservCrit
@@ -420,13 +432,5 @@ max idl                 StringPlot
 
 #END_COMP IE -----------------------------------------------------------------
 
-#ENDTIME            
-2010			year
-03              	month
-20              	day
-12			hour
-00             		minute
-00              	second
-0.0			FracSecond
 
 #END ############################################################
